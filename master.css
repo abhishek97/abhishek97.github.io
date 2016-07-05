@@ -1,0 +1,73 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+  
+}
+#todo
+{
+  width : 80%;
+  height: 100%;
+  margin-left: 10%;
+  padding-top: 40px;
+  background-color: lightyellow;
+  
+}
+#todo #heading
+{
+  margin-top: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+#todo #list
+{
+  margin-top: 50px;
+  margin-left: 5%;
+  width : 90%;
+  
+}
+#list ul
+{
+  list-style-type: none;
+}
+ul li
+{
+  height: 30px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  border-bottom-color: grey;
+}
+#inputbox
+{
+  margin-top: 40px;
+  display: flex;
+}
+#inputbox input
+{
+  flex : 9 0 0;
+  height: 30px;
+  width: 95%;
+  text-align: center;
+  margin-left: 10px;
+}
+#inputbox button
+{
+  margin-left: 10px;
+  flex : 1 0 0;
+  width: 4.5%;
+  height: 30px;
+}
+.checked
+{
+  text-decoration: line-through;
+}
+#bin
+{
+  text-align: right;
+}
+#bin button
+{
+  height: 30px;
+  width: 10%;
+}
