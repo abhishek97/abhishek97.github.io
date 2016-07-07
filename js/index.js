@@ -1,7 +1,19 @@
 
-  var not = 0;
-  var list = new Array;
-  
+var list = [];
+var not = 0;
+
+
+window.onload = function ()
+{
+  if(localStorage.getItem("not") && localStorage.getItem("todo"))
+    {
+      list = JSON.parse(localStorage.getItem("todo") );
+      not = localStorage.getItem("not");
+    }
+
+  rebuild();
+}
+
   document.getElementById("add").onclick = function () {
     var newtxt = document.getElementById("newtask").value;
     document.getElementById("newtask").value = "";
@@ -12,24 +24,33 @@
       "text" : newtxt,
       "checked" : false
                });
-    document.getElementById("todolist").innerHTML = cur + formcontent(not);
     not ++;
+    localStorage.setItem("todo", JSON.stringify(list) );
+    localStorage.setItem("not", not);
+    rebuild();
+    
     
   };
   
   function checkarray(arg) {
-    
+   
     if (list[arg].checked == true)
+    {
       document.getElementById("item" + arg).setAttribute("class" , "notchecked");
+    }
     else
+    {
       document.getElementById("item" + arg).setAttribute("class" , "checked");
+    }
     
-    list[arg].checked = ! (list[arg].checked);
+    list[arg].checked = !(list[arg].checked);
     
   };
   
   function rebuild()
   {
+    
+    not = localStorage.getItem("not");
     document.getElementById("todolist").innerHTML = "";
     for( var i=0;i <not ;i++)
       {
@@ -55,9 +76,11 @@
           not--;
         }
       }
+    
+    localStorage.setItem("not",not);
+    localStorage.setItem("todo", JSON.stringify(list));
     rebuild();
   }
 
-  
 
 
